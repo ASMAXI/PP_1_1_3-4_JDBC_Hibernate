@@ -4,15 +4,12 @@ import jm.task.core.jdbc.dao.UserDao;
 import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
-import jm.task.core.jdbc.util.HibernateUtil;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-    UserDao userDao = new UserDaoHibernateImpl(sessionFactory);
+    UserDao userDao = new UserDaoJDBCImpl();
 
     @Override
     public void createUsersTable() {
